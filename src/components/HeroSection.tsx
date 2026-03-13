@@ -27,14 +27,13 @@ const HeroSection = () => {
 
         {/* Tagline */}
         <p className="text-xs md:text-sm uppercase tracking-[0.25em] text-gold font-body font-medium mb-5 animate-fade-in-up">
-          Advocacia &amp; Harmonização de Conflitos
+          +15 Anos de Experiência · Advocacia Estratégica
         </p>
 
         {/* Headline — copy persuasivo */}
         <h1 className="font-display text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-gold-light leading-[1.15] mb-6 animate-fade-in-up">
-          Resolva Seu Conflito com
-          <span className="text-gradient-gold"> Estratégia, Agilidade</span> e
-          Respeito
+          Soluções Jurídicas de Alto Nível para
+          <span className="text-gradient-gold"> Pessoas e Empresas</span>
         </h1>
 
         {/* Sub-headline — prova de autoridade + empatia */}
@@ -42,9 +41,9 @@ const HeroSection = () => {
           className="font-body text-lg md:text-xl text-gold-light/65 mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-in-up"
           style={{ animationDelay: "0.2s" }}
         >
-          Especialistas em Direito Civil, Família e Previdenciário em Recife.
-          Priorizamos a harmonização para que você conquiste resultados{" "}
-          <strong className="text-gold-light/90">sem o desgaste de um processo longo</strong>.
+          Direito das Famílias, Sucessões, Societário e Contratos em Recife.
+          Experiência em escritórios, empresas de grande porte e Administração Pública —{" "}
+          <strong className="text-gold-light/90">a favor do seu caso</strong>.
         </p>
 
         {/* CTAs */}

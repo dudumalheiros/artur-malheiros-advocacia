@@ -14,11 +14,11 @@ const Footer = () => {
             Dê o Primeiro Passo
           </p>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-gold-light mb-4">
-            Vamos Conversar Sobre o Seu Caso?
+            Seu Caso Merece um Advogado Experiente
           </h2>
           <div className="w-12 h-px bg-gold mx-auto mb-4" />
           <p className="font-body text-gold-light/55 text-sm leading-relaxed mb-6">
-            A primeira conversa é para ouvir você. Sem compromisso, sem jargões — apenas o primeiro passo rumo à solução que você precisa.
+            Mais de 15 anos resolvendo questões jurídicas complexas para pessoas e empresas. A primeira conversa é sem compromisso — e pode mudar o rumo do seu caso.
           </p>
           <Button variant="gold" size="lg" className="text-base px-10 py-6" asChild>
             <a

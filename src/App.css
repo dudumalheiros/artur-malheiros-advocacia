@@ -37,6 +37,6 @@ html {
 
 /* Selection color matching brand */
 ::selection {
-  background-color: hsl(36 52% 48% / 0.3);
+  background-color: hsl(38 38% 47% / 0.28);
   color: hsl(205 38% 16%);
 }

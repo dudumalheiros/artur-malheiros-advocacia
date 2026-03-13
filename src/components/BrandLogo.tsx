@@ -7,7 +7,7 @@
  *  - As 4 pernas criam 2 "X" nos flancos, característica marcante do logo
  */
 const BrandLogo = () => {
-  const gold = "#BF8C3A"; // âmbar queimado exato da identidade visual
+  const gold = "#A8884A"; // ouro fosco/envelhecido — pedido do cliente
   const sw = 5.2;         // espessura do traço
 
   // Coordenadas dos dois "A" sobrepostos dentro de um viewBox 80×66

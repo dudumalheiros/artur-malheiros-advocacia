@@ -39,13 +39,13 @@
     /* ── Paleta da marca ── */
     /* Azul: #1D3140 → hsl(205, 38%, 18%)  fundo profundo */
     /* Azul mid: #253C50 → hsl(205, 36%, 23%) */
-    /* Dourado: #BF8C3A → hsl(36, 52%, 48%) âmbar queimado */
+    /* Dourado fosco: #A8884A → hsl(38, 38%, 47%) ouro envelhecido/mate */
     --navy: 205 36% 23%;
     --navy-deep: 205 38% 16%;
     --navy-light: 205 30% 32%;
-    --gold: 36 52% 48%;
-    --gold-light: 36 46% 62%;
-    --gold-muted: 36 32% 80%;
+    --gold: 38 38% 47%;
+    --gold-light: 38 30% 62%;
+    --gold-muted: 38 22% 78%;
     --warm-gray: 205 10% 46%;
     --warm-gray-light: 205 14% 96%;
 

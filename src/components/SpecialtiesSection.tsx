@@ -1,24 +1,42 @@
-import { Scale, Users, FileText } from "lucide-react";
+import { Scale, Users, FileText, Building2, Briefcase, Gavel } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const specialties = [
   {
-    icon: Scale,
-    title: "Civil e Consumidor",
-    description:
-      "Contratos, indenizações, cobranças e relações de consumo. Defendemos seus direitos com estratégia para evitar que um problema simples se torne uma dor de cabeça.",
-  },
-  {
     icon: Users,
     title: "Famílias e Sucessões",
     description:
-      "Divórcios, guarda, pensão e inventários conduzidos com sensibilidade. Priorizamos acordos que preservam os vínculos e protegem quem mais importa.",
+      "Divórcios, guarda, pensão alimentícia, inventários e planejamento sucessório. Conduzidos com sensibilidade para proteger quem você mais ama — priorizando acordos que preservam os vínculos.",
+  },
+  {
+    icon: Building2,
+    title: "Direito Societário",
+    description:
+      "Constituição e dissolução de empresas, acordos de sócios, reestruturações societárias e governança corporativa. Experiência com empresas de grande porte e ambientes regulados.",
+  },
+  {
+    icon: Scale,
+    title: "Contratos",
+    description:
+      "Elaboração, revisão e negociação de contratos empresariais e civis. Blindamos seus negócios e seus direitos antes que um problema aconteça — com linguagem clara e estratégia sólida.",
+  },
+  {
+    icon: Gavel,
+    title: "Contencioso & Litigation",
+    description:
+      "Defesa judicial estratégica em audiências e processos de alta complexidade. Mais de 15 anos de atuação em tribunais, com foco em resultados e eficiência processual.",
+  },
+  {
+    icon: Briefcase,
+    title: "Consultoria Jurídica",
+    description:
+      "Assessoria preventiva para pessoas físicas e empresas. Identificamos riscos antes que virem problemas — incluindo consultoria política, treinamentos e palestras corporativas.",
   },
   {
     icon: FileText,
-    title: "Previdenciário",
+    title: "Gestão Jurídica",
     description:
-      "Aposentadorias, auxílios e revisões junto ao INSS. Lutamos para que você receba o benefício que conquistou ao longo da vida — sem burocracia desnecessária.",
+      "Estruturação e gerenciamento de departamentos jurídicos para empresas que precisam de um jurídico de alto nível sem a complexidade de uma equipe interna.",
   },
 ];
 
@@ -38,11 +56,11 @@ const SpecialtiesSection = () => {
           </h2>
           <div className="w-12 h-px bg-gold mx-auto mb-4" />
           <p className="font-body text-muted-foreground max-w-xl mx-auto text-sm leading-relaxed">
-            Cada situação jurídica é única. Por isso, ouvimos primeiro e agimos depois — sempre buscando a solução mais inteligente e humana.
+            Uma atuação completa — da consultoria preventiva ao contencioso — para pessoas físicas e empresas que exigem excelência jurídica.
           </p>
         </div>
 
-        {/* Cards */}
+        {/* Cards — grid 3x2 */}
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto reveal-stagger">
           {specialties.map((item, i) => (
             <div
