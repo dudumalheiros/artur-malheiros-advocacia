@@ -1,42 +1,42 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Global app styles — Artur Malheiros Advocacia */
+
+html {
+  scroll-behavior: smooth;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+/* Scroll reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Staggered children animation */
+.reveal-stagger > .reveal {
+  transition-delay: calc(var(--stagger, 0) * 120ms);
+}
+
+/* WhatsApp pulse */
+@keyframes whatsapp-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
   }
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.animate-whatsapp-pulse {
+  animation: whatsapp-pulse 2.4s ease-in-out infinite;
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+/* Selection color matching brand */
+::selection {
+  background-color: hsl(36 52% 48% / 0.3);
+  color: hsl(205 38% 16%);
 }

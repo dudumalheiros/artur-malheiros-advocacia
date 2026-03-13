@@ -1,39 +1,59 @@
+/**
+ * BrandLogo — monograma "AA" duplo fiel ao logo oficial Artur Malheiros.
+ *
+ * Estrutura geométrica:
+ *  - "A" externo (mais largo): pernas abertas, travessa alta
+ *  - "A" interno (mais estreito): centralizado, sobreposto, mesma travessa
+ *  - As 4 pernas criam 2 "X" nos flancos, característica marcante do logo
+ */
 const BrandLogo = () => {
+  const gold = "#BF8C3A"; // âmbar queimado exato da identidade visual
+  const sw = 5.2;         // espessura do traço
+
+  // Coordenadas dos dois "A" sobrepostos dentro de um viewBox 80×66
+  // A externo (maior, atrás):  ápice em (40, 2), base em (4, 64) e (76, 64)
+  // A interno (menor, frente): ápice em (40, 10), base em (16, 64) e (64, 64)
+  // Travessa compartilhada na altura ~y=42
+
   return (
-    <div className="flex items-center gap-2.5 md:gap-3.5 select-none">
+    <div className="flex items-center gap-3 md:gap-4 select-none">
+      {/* ── Monograma SVG ── */}
       <svg
-        viewBox="0 0 120 120"
+        viewBox="0 0 80 68"
         role="img"
-        aria-label="Monograma Artur Malheiros"
-        className="h-10 w-10 md:h-12 md:w-12"
+        aria-label="Monograma AA — Artur Malheiros"
+        className="h-9 w-auto md:h-11"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <defs>
-          <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="hsl(43 40% 78%)" />
-            <stop offset="48%" stopColor="hsl(43 55% 55%)" />
-            <stop offset="100%" stopColor="hsl(43 42% 66%)" />
-          </linearGradient>
-        </defs>
-        <polygon
-          points="60,8 112,108 92,108 76,78 44,78 28,108 8,108"
-          fill="none"
-          stroke="url(#goldGradient)"
-          strokeWidth="8"
-          strokeLinejoin="round"
-        />
-        <polygon
-          points="60,32 83,75 37,75"
-          fill="url(#goldGradient)"
-          opacity="0.28"
-        />
-        <rect x="48" y="78" width="24" height="8" rx="2" fill="url(#goldGradient)" />
+        {/* ─── A externo (pernas abertas) ─── */}
+        {/* perna esquerda externa */}
+        <line x1="4"  y1="66" x2="40" y2="2"  stroke={gold} strokeWidth={sw} strokeLinecap="round" />
+        {/* perna direita externa */}
+        <line x1="76" y1="66" x2="40" y2="2"  stroke={gold} strokeWidth={sw} strokeLinecap="round" />
+
+        {/* ─── A interno (mais estreito, ápice no mesmo ponto) ─── */}
+        {/* perna esquerda interna */}
+        <line x1="18" y1="66" x2="40" y2="12" stroke={gold} strokeWidth={sw} strokeLinecap="round" />
+        {/* perna direita interna */}
+        <line x1="62" y1="66" x2="40" y2="12" stroke={gold} strokeWidth={sw} strokeLinecap="round" />
+
+        {/* ─── Travessa única que corta os dois "A" ─── */}
+        <line x1="14" y1="43" x2="66" y2="43" stroke={gold} strokeWidth={sw} strokeLinecap="round" />
       </svg>
 
-      <div className="leading-[0.95]">
-        <div className="font-body text-[10px] md:text-[11px] tracking-[0.22em] text-gold-light/85 uppercase">
+      {/* ── Tipografia ── */}
+      <div className="leading-[1.1]">
+        <div
+          className="uppercase font-body font-medium tracking-[0.28em] text-[11px] md:text-[12px]"
+          style={{ color: gold }}
+        >
           Artur
         </div>
-        <div className="font-body text-sm md:text-base tracking-[0.22em] text-gold-light font-semibold uppercase">
+        <div
+          className="uppercase font-body font-semibold tracking-[0.28em] text-[13px] md:text-[15px]"
+          style={{ color: gold }}
+        >
           Malheiros
         </div>
       </div>
