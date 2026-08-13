@@ -52,7 +52,10 @@ async function safeFetch<T>(operation: string, run: () => Promise<T>, fallback: 
   try {
     return await run();
   } catch (error) {
-    console.error(`[sanity] ${operation} falhou:`, error);
+    // Só a mensagem: o objeto de erro completo do Sanity polui o log do build
+    // com headers e responseBody a cada página gerada.
+    const detalhe = error instanceof Error ? error.message : String(error);
+    console.error(`[sanity] ${operation} falhou: ${detalhe}`);
     return fallback;
   }
 }
