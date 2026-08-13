@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
     // Fotos do blog vêm do CDN do Sanity.
     remotePatterns: [{ protocol: "https", hostname: "cdn.sanity.io" }],
     formats: ["image/avif", "image/webp"],
+    // O Next 16 só otimiza qualidades desta lista (padrão: [75]).
+    // 90 é para o retrato do Dr. Artur, que já chega comprimido do WhatsApp.
+    qualities: [75, 90],
   },
   async headers() {
     return [

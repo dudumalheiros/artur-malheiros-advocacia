@@ -1,5 +1,8 @@
 "use client";
 
+import Image from "next/image";
+
+import retrato from "@/assets/artur-malheiros.jpg";
 import { Button } from "@/components/Button";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { whatsappLink } from "@/lib/contact";
@@ -18,15 +21,22 @@ const AboutSection = () => {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center max-w-5xl mx-auto">
 
-          {/* Photo placeholder */}
-          <div className="relative reveal">
-            <div className="aspect-[3/4] rounded-lg bg-navy-light/50 border border-gold/20 flex items-center justify-center overflow-hidden">
-              <div className="text-center p-8">
-                <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-navy-deep border-2 border-gold/30 flex items-center justify-center">
-                  <span className="font-display text-3xl text-gold">AM</span>
-                </div>
-                <p className="text-sm text-gold-light/40 font-body">Foto Profissional</p>
-              </div>
+          {/* Retrato do Dr. Artur.
+              Quadrado de propósito: o arquivo original tem 528×528 e esticá-lo
+              num retrato 3:4 deixaria a imagem borrada em telas retina. */}
+          <div className="relative reveal max-w-[400px] w-full mx-auto md:mx-0">
+            <div className="aspect-square rounded-lg bg-navy-light/50 border border-gold/20 overflow-hidden">
+              {/* q=90 (liberado em next.config.ts): o original já vem
+                  comprimido do WhatsApp e recomprimir no padrão q=75
+                  empilharia artefato sobre artefato. */}
+              <Image
+                src={retrato}
+                alt="Dr. Artur Malheiros, advogado"
+                sizes="(max-width: 768px) 90vw, 400px"
+                quality={90}
+                placeholder="blur"
+                className="w-full h-full object-cover"
+              />
             </div>
             <div className="absolute -bottom-4 -right-4 w-24 h-24 border-2 border-gold/30 rounded-lg" />
 
