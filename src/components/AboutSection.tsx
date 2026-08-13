@@ -1,5 +1,8 @@
-import { Button } from "@/components/ui/button";
+"use client";
+
+import { Button } from "@/components/Button";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { whatsappLink } from "@/lib/contact";
 
 const stats = [
   { value: "+15", label: "Anos de experiência" },
@@ -49,10 +52,10 @@ const AboutSection = () => {
             <div className="w-12 h-px bg-gold mb-6" />
 
             <p className="font-body text-gold-light/65 leading-relaxed mb-4">
-              Com <strong className="text-gold-light/90">mais de 15 anos de carreira jurídica</strong>, o Dr. Artur Malheiros construiu uma trajetória sólida em escritórios particulares, órgãos da Administração Pública e empresas privadas de grande porte — incluindo experiência no setor de <strong className="text-gold-light/90">iGaming e gestão de departamentos jurídicos</strong>.
+              Com <strong className="text-gold-light/90">mais de 15 anos de carreira jurídica</strong>, o Dr. Artur Malheiros construiu uma trajetória sólida em escritório particular, com foco na resolução estratégica dos problemas jurídicos — incluindo experiência com <strong className="text-gold-light/90">Contratos, Direito do Consumidor e o setor de iGaming</strong>.
             </p>
             <p className="font-body text-gold-light/65 leading-relaxed mb-4">
-              Sua atuação vai além do processo: envolve <strong className="text-gold-light/90">consultoria jurídica e política, treinamentos corporativos, palestras e gerenciamento estratégico</strong> — o que garante uma visão 360° que poucos advogados oferecem.
+              Sua atuação vai além do processo: envolve <strong className="text-gold-light/90">consultoria jurídica, assessoria à governança empresarial, palestras e gerenciamento estratégico</strong> — o que garante uma visão 360° que poucos advogados oferecem.
             </p>
             <p className="font-body text-gold-light/65 leading-relaxed mb-8">
               Especializado em <strong className="text-gold-light/90">Direito das Famílias, Sucessões, Societário e Contratos</strong>, o escritório atende tanto pessoas físicas quanto empresas que precisam de um jurídico de alto nível — com a atenção personalizada que só um escritório boutique proporciona.
@@ -60,7 +63,7 @@ const AboutSection = () => {
 
             {/* Tags de especialidade */}
             <div className="flex flex-wrap gap-2 mb-8">
-              {["Famílias & Sucessões", "Societário", "Contratos", "Contencioso", "iGaming", "Gestão Jurídica"].map((tag) => (
+              {["Famílias & Sucessões", "Societário", "Contratos", "Imobiliário", "Previdenciário", "Consumidor", "iGaming"].map((tag) => (
                 <span
                   key={tag}
                   className="text-xs font-body text-gold/80 border border-gold/25 rounded-full px-3 py-1 bg-navy-deep/40"
@@ -72,7 +75,9 @@ const AboutSection = () => {
 
             <Button variant="gold" asChild>
               <a
-                href="https://wa.me/558196097878?text=Olá, Dr. Artur. Gostaria de agendar uma conversa."
+                href={whatsappLink(
+                  "Olá, Dr. Artur. Gostaria de agendar uma conversa.",
+                )}
                 target="_blank"
                 rel="noopener noreferrer"
               >

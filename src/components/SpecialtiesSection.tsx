@@ -1,4 +1,13 @@
-import { Scale, Users, FileText, Building2, Briefcase, Gavel } from "lucide-react";
+"use client";
+
+import {
+  Scale,
+  Users,
+  Building2,
+  Home,
+  ShieldCheck,
+  HeartHandshake,
+} from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const specialties = [
@@ -21,22 +30,22 @@ const specialties = [
       "Elaboração, revisão e negociação de contratos empresariais e civis. Blindamos seus negócios e seus direitos antes que um problema aconteça — com linguagem clara e estratégia sólida.",
   },
   {
-    icon: Gavel,
-    title: "Contencioso & Litigation",
+    icon: Home,
+    title: "Direito Imobiliário",
     description:
-      "Defesa judicial estratégica em audiências e processos de alta complexidade. Mais de 15 anos de atuação em tribunais, com foco em resultados e eficiência processual.",
+      "Compra e venda de imóveis, ações envolvendo posse, usucapião, aluguéis, loteamentos e condomínios.",
   },
   {
-    icon: Briefcase,
-    title: "Consultoria Jurídica",
+    icon: ShieldCheck,
+    title: "Direito Previdenciário",
     description:
-      "Assessoria preventiva para pessoas físicas e empresas. Identificamos riscos antes que virem problemas — incluindo consultoria política, treinamentos e palestras corporativas.",
+      "Pensão por morte, aposentadorias, benefícios por incapacidade e revisões de benefícios. Atuação tanto no Regime Geral (INSS) quanto no Regime Próprio (servidores públicos).",
   },
   {
-    icon: FileText,
-    title: "Gestão Jurídica",
+    icon: HeartHandshake,
+    title: "Direito do Consumidor",
     description:
-      "Estruturação e gerenciamento de departamentos jurídicos para empresas que precisam de um jurídico de alto nível sem a complexidade de uma equipe interna.",
+      "Indenizações por responsabilidade civil, negativações indevidas nos órgãos de proteção ao crédito, falhas na prestação de serviços, fraudes bancárias e apostas esportivas.",
   },
 ];
 
@@ -56,7 +65,7 @@ const SpecialtiesSection = () => {
           </h2>
           <div className="w-12 h-px bg-gold mx-auto mb-4" />
           <p className="font-body text-muted-foreground max-w-xl mx-auto text-sm leading-relaxed">
-            Uma atuação completa — da consultoria preventiva ao contencioso — para pessoas físicas e empresas que exigem excelência jurídica.
+            Atuação em direito civil e empresarial para pessoas físicas e empresas — do acompanhamento preventivo à representação judicial.
           </p>
         </div>
 

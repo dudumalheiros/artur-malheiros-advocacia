@@ -1,14 +1,19 @@
+"use client";
+
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import { Button } from "@/components/Button";
+import { whatsappLink } from "@/lib/contact";
 
 // ─── Fotos reais do escritório ──────────────────────────────────────────────
+// escritorio5.jpg é byte-a-byte idêntico ao escritorio3.jpg, então está fora
+// da rotação. Quando chegar uma 5ª foto de verdade, é só importar e somar aqui.
 import slide1 from "@/assets/escritorio1.jpg";
 import slide2 from "@/assets/escritorio2.jpg";
 import slide3 from "@/assets/escritorio3.jpg";
 import slide4 from "@/assets/escritorio4.jpg";
-import slide5 from "@/assets/escritorio5.jpg";
 
-const slides = [slide1, slide2, slide3, slide4, slide5];
+const slides = [slide1, slide2, slide3, slide4];
 
 const INTERVAL = 5000; // ms entre cada troca
 
@@ -33,14 +38,16 @@ const HeroSection = () => {
     >
       {/* ── Camadas de imagens com cross-fade ── */}
       {slides.map((src, i) => (
-        <img
+        <Image
           key={i}
           src={src}
           alt=""
           role="presentation"
-          decoding={i === 0 ? "sync" : "async"}
-          loading={i === 0 ? "eager" : "lazy"}
-          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
+          fill
+          sizes="100vw"
+          priority={i === 0}
+          placeholder="blur"
+          className="object-cover transition-opacity duration-1000"
           style={{
             opacity: i === current ? 1 : 0,
             zIndex: i === current ? 1 : i === prev ? 0 : -1,
@@ -69,7 +76,7 @@ const HeroSection = () => {
           style={{ animationDelay: "0.2s" }}
         >
           Direito das Famílias, Sucessões, Societário e Contratos em Recife.
-          Experiência em escritórios, empresas de grande porte e Administração Pública —{" "}
+          Mais de 15 anos de trajetória jurídica —{" "}
           <strong className="text-gold-light/90">a favor do seu caso</strong>.
         </p>
 
@@ -79,11 +86,13 @@ const HeroSection = () => {
         >
           <Button variant="gold" size="lg" className="text-base px-10 py-6" asChild>
             <a
-              href="https://wa.me/558196097878?text=Olá, Dr. Artur. Gostaria de agendar uma consulta."
+              href={whatsappLink(
+                "Olá, Dr. Artur. Gostaria de agendar uma consulta.",
+              )}
               target="_blank"
               rel="noopener noreferrer"
             >
-              Falar com Especialista
+              Falar com o Escritório
             </a>
           </Button>
           <Button variant="outline-gold" size="lg" className="text-base px-10 py-6" asChild>

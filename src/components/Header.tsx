@@ -1,14 +1,24 @@
+"use client";
+
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { Button } from "@/components/Button";
 import { Menu, X } from "lucide-react";
 import BrandLogo from "@/components/BrandLogo";
+import { whatsappLink } from "@/lib/contact";
 
+const CONSULTA_LINK = whatsappLink(
+  "Olá, Dr. Artur. Gostaria de agendar uma consulta.",
+);
+
+// Âncoras com "/" na frente para que o menu também funcione a partir
+// das páginas do blog, não só da home.
 const navItems = [
-  { label: "Início", href: "#inicio" },
-  { label: "Especialidades", href: "#especialidades" },
-  { label: "Sobre", href: "#sobre" },
-  { label: "Diferenciais", href: "#diferenciais" },
-  { label: "Contato", href: "#contato" },
+  { label: "Início", href: "/#inicio" },
+  { label: "Especialidades", href: "/#especialidades" },
+  { label: "Sobre", href: "/#sobre" },
+  { label: "Artigos", href: "/blog" },
+  { label: "Contato", href: "/#contato" },
 ];
 
 const Header = () => {
@@ -30,23 +40,26 @@ const Header = () => {
       }`}
     >
       <div className="w-full px-3 md:px-5 lg:px-7 h-[74px] md:h-[80px] flex items-center justify-between">
-        <a href="#inicio" className="flex items-center shrink-0 -ml-0.5 md:ml-0">
+        <Link
+          href="/#inicio"
+          className="flex items-center shrink-0 -ml-0.5 md:ml-0"
+        >
           <BrandLogo />
-        </a>
+        </Link>
 
         <nav className="hidden md:flex items-center gap-6 lg:gap-8" aria-label="Navegação principal">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.href}
               href={item.href}
               className="text-xs lg:text-sm font-body text-gold-light/80 hover:text-gold transition-colors duration-200 tracking-[0.12em] uppercase"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
           <Button variant="gold" size="sm" asChild>
             <a
-              href="https://wa.me/558196097878?text=Olá, Dr. Artur. Gostaria de agendar uma consulta."
+              href={CONSULTA_LINK}
               target="_blank"
               rel="noopener noreferrer"
               className="px-1"
@@ -73,23 +86,19 @@ const Header = () => {
         }`}
       >
         {navItems.map((item) => (
-          <a
+          <Link
             key={item.href}
             href={item.href}
             onClick={() => setIsOpen(false)}
             className="block px-6 py-3 text-sm font-body text-gold-light/70 hover:text-gold hover:bg-navy-light/30 transition-colors"
           >
             {item.label}
-          </a>
+          </Link>
         ))}
         <div className="px-6 pt-2">
           <Button variant="gold" size="sm" className="w-full" asChild>
-            <a
-              href="https://wa.me/558196097878?text=Olá, Dr. Artur. Gostaria de agendar uma consulta."
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Falar com Especialista
+            <a href={CONSULTA_LINK} target="_blank" rel="noopener noreferrer">
+              Falar com o Escritório
             </a>
           </Button>
         </div>

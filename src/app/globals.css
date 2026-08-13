@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 205 25% 96%;
+    --foreground: 205 40% 14%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 205 40% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 205 40% 14%;
+
+    --primary: 205 38% 22%;
+    --primary-foreground: 36 52% 62%;
+
+    --secondary: 205 20% 90%;
+    --secondary-foreground: 205 38% 22%;
+
+    --muted: 205 18% 93%;
+    --muted-foreground: 205 12% 44%;
+
+    --accent: 36 52% 48%;
+    --accent-foreground: 205 50% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 205 18% 86%;
+    --input: 205 18% 86%;
+    --ring: 36 52% 48%;
+
+    --radius: 0.375rem;
+
+    /* ── Paleta da marca ── */
+    /* Azul: #1D3140 → hsl(205, 38%, 18%)  fundo profundo */
+    /* Azul mid: #253C50 → hsl(205, 36%, 23%) */
+    /* Dourado fosco: #A8884A → hsl(38, 38%, 47%) ouro envelhecido/mate */
+    --navy: 205 36% 23%;
+    --navy-deep: 205 38% 16%;
+    --navy-light: 205 30% 32%;
+    --gold: 38 38% 47%;
+    --gold-light: 38 30% 62%;
+    --gold-muted: 38 22% 78%;
+    --warm-gray: 205 10% 46%;
+    --warm-gray-light: 205 14% 96%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(43 55% 55%), hsl(43 40% 72%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* ── Scroll reveal ────────────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-stagger > .reveal {
+  transition-delay: calc(var(--stagger, 0) * 120ms);
+}
+
+/* Sem animação para quem pediu menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .animate-whatsapp-pulse {
+    animation: none;
+  }
+}
+
+/* ── Botão WhatsApp ───────────────────────────────────────────────── */
+@keyframes whatsapp-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+  }
+}
+.animate-whatsapp-pulse {
+  animation: whatsapp-pulse 2.4s ease-in-out infinite;
+}
+
+::selection {
+  background-color: hsl(38 38% 47% / 0.28);
+  color: hsl(205 38% 16%);
+}

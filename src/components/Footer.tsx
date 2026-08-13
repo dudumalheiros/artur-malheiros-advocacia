@@ -1,6 +1,17 @@
+"use client";
+
 import { MapPin, Phone, Mail, Clock, Instagram } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/Button";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import {
+  ADDRESS,
+  EMAIL,
+  INSTAGRAM_HANDLE,
+  MAPS_EMBED_URL,
+  PHONE_DISPLAY,
+  PHONE_E164,
+  whatsappLink,
+} from "@/lib/contact";
 
 const Footer = () => {
   const sectionRef = useScrollReveal<HTMLElement>();
@@ -22,7 +33,9 @@ const Footer = () => {
           </p>
           <Button variant="gold" size="lg" className="text-base px-10 py-6" asChild>
             <a
-              href="https://wa.me/558196097878?text=Olá, Dr. Artur. Gostaria de conversar sobre um caso jurídico."
+              href={whatsappLink(
+                "Olá, Dr. Artur. Gostaria de conversar sobre um caso jurídico.",
+              )}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -50,37 +63,35 @@ const Footer = () => {
             <h4 className="font-display text-lg font-semibold text-gold-light mb-4">Contato</h4>
             <div className="space-y-3">
               <a
-                href="tel:+558196097878"
+                href={`tel:+${PHONE_E164}`}
                 className="flex items-center gap-3 text-gold-light/60 text-sm font-body hover:text-gold transition-colors"
               >
                 <Phone className="w-4 h-4 text-gold shrink-0" />
-                <span>(81) 9609-7878</span>
+                <span>{PHONE_DISPLAY}</span>
               </a>
               <a
-                href="mailto:contato@arturmalheiros.adv.br"
+                href={`mailto:${EMAIL}`}
                 className="flex items-center gap-3 text-gold-light/60 text-sm font-body hover:text-gold transition-colors"
               >
                 <Mail className="w-4 h-4 text-gold shrink-0" />
-                <span>contato@arturmalheiros.adv.br</span>
+                <span>{EMAIL}</span>
               </a>
               <div className="flex items-start gap-3 text-gold-light/60 text-sm font-body">
                 <MapPin className="w-4 h-4 text-gold shrink-0 mt-0.5" />
-                <span>
-                  Rua Padre Carapuceiro, 752, Torre Vicente do Rego Monteiro, Sala 203, Boa Viagem — Recife/PE
-                </span>
+                <span>{ADDRESS}</span>
               </div>
               <div className="flex items-center gap-3 text-gold-light/60 text-sm font-body">
                 <Clock className="w-4 h-4 text-gold shrink-0" />
                 <span>Seg – Sex: 9h às 18h</span>
               </div>
               <a
-                href="https://instagram.com/arturmalheirosadv"
+                href={`https://instagram.com/${INSTAGRAM_HANDLE}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-gold-light/60 text-sm font-body hover:text-gold transition-colors"
               >
                 <Instagram className="w-4 h-4 text-gold shrink-0" />
-                <span>@arturmalheirosadv</span>
+                <span>@{INSTAGRAM_HANDLE}</span>
               </a>
             </div>
           </div>
@@ -91,7 +102,7 @@ const Footer = () => {
             <div className="aspect-video rounded-lg overflow-hidden border border-gold/10">
               <iframe
                 title="Localização do escritório Artur Malheiros Advocacia"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3950.3!2d-34.8906!3d-8.1206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sRua+Padre+Carapuceiro%2C+752+-+Boa+Viagem%2C+Recife+-+PE!5e0!3m2!1spt-BR!2sbr!4v1700000000000"
+                src={MAPS_EMBED_URL}
                 className="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-500"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
