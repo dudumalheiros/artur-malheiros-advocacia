@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Artur Malheiros Advocacia">
+  <!--
+    Favicon: monograma "A" em ouro sobre o navy da marca.
+    O logo completo tem dois "A" sobrepostos (ver BrandLogo.tsx); a 16px
+    os 5 traços viram um borrão, então aqui fica só o "A" externo com
+    traço mais grosso — mesma proporção, legível na aba do navegador.
+  -->
+  <rect width="64" height="64" rx="14" fill="#192B38" />
+  <g stroke="#C9A85C" stroke-width="6.5" stroke-linecap="round" fill="none">
+    <line x1="13" y1="51" x2="32" y2="13" />
+    <line x1="51" y1="51" x2="32" y2="13" />
+    <line x1="18.5" y1="40.5" x2="45.5" y2="40.5" />
+  </g>
+</svg>
