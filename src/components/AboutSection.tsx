@@ -19,33 +19,41 @@ const AboutSection = () => {
   return (
     <section id="sobre" className="py-24 bg-navy" ref={sectionRef}>
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-[264px_1fr] gap-12 lg:gap-16 items-center max-w-5xl mx-auto">
 
           {/* Retrato do Dr. Artur.
-              Quadrado de propósito: o arquivo original tem 528×528 e esticá-lo
-              num retrato 3:4 deixaria a imagem borrada em telas retina. */}
-          <div className="relative reveal max-w-[400px] w-full mx-auto md:mx-0">
-            <div className="aspect-square rounded-lg bg-navy-light/50 border border-gold/20 overflow-hidden">
-              {/* q=90 (liberado em next.config.ts): o original já vem
-                  comprimido do WhatsApp e recomprimir no padrão q=75
-                  empilharia artefato sobre artefato. */}
-              <Image
-                src={retrato}
-                alt="Dr. Artur Malheiros, advogado"
-                sizes="(max-width: 768px) 90vw, 400px"
-                quality={90}
-                placeholder="blur"
-                className="w-full h-full object-cover"
-              />
+              O único arquivo que temos é a foto de perfil do WhatsApp: 528×528,
+              sem EXIF, já recomprimida. Por isso o quadro é travado em 264px —
+              em tela retina (2x) isso consome exatamente os 528px nativos e a
+              foto sai nítida. Se o original do fotógrafo aparecer, dá pra
+              voltar aos 400px de antes (ajustar aqui, no `sizes` e na coluna
+              do grid acima). */}
+          <div className="reveal">
+            <div className="relative w-[264px] max-w-full mx-auto md:mx-0">
+              <div className="aspect-square rounded-lg bg-navy-light/50 border border-gold/20 overflow-hidden">
+                {/* q=90 (liberado em next.config.ts): o original já vem
+                    comprimido do WhatsApp e recomprimir no padrão q=75
+                    empilharia artefato sobre artefato. */}
+                <Image
+                  src={retrato}
+                  alt="Dr. Artur Malheiros, advogado"
+                  sizes="264px"
+                  quality={90}
+                  placeholder="blur"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-3 -right-3 w-16 h-16 border-2 border-gold/30 rounded-lg" />
             </div>
-            <div className="absolute -bottom-4 -right-4 w-24 h-24 border-2 border-gold/30 rounded-lg" />
 
-            {/* Stats flutuantes */}
-            <div className="absolute -left-4 bottom-12 bg-navy-deep border border-gold/20 rounded-lg px-4 py-3 shadow-xl">
+            {/* Stats em faixa horizontal sob o retrato. Antes era um card
+                flutuante sobreposto, mas num quadro de 264px ele cobria metade
+                do rosto. */}
+            <div className="mt-8 w-[264px] max-w-full mx-auto md:mx-0 bg-navy-deep border border-gold/20 rounded-lg px-3 py-3 shadow-xl flex divide-x divide-gold/15">
               {stats.map((s) => (
-                <div key={s.label} className="text-center mb-2 last:mb-0">
-                  <div className="font-display text-xl font-bold text-gold">{s.value}</div>
-                  <div className="font-body text-[10px] text-gold-light/50 uppercase tracking-widest">{s.label}</div>
+                <div key={s.label} className="flex-1 text-center px-1">
+                  <div className="font-display text-lg font-bold text-gold">{s.value}</div>
+                  <div className="font-body text-[9px] text-gold-light/50 uppercase tracking-wider leading-snug mt-1">{s.label}</div>
                 </div>
               ))}
             </div>
